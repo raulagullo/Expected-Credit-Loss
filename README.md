@@ -34,11 +34,13 @@ Se compararon además regresiones logísticas, linear trees y LightGBM con árbo
 
 Todas las decisiones de modelización y los parámetros de la calibración se fijaron con train y validación. El conjunto de test (427.929 préstamos) se usó una única vez, al final, aplicando el pipeline congelado.
 
-| | ECL predicha | Pérdida real | ECL / pérdida | Préstamos infraestimados | MAE ECL$_j$ |
-|---|---:|---:|---:|---:|---:|
-| **Test, calibrada** | 566.958.326 $ | 556.332.939 $ | **1.0191** | **9.50 %** | 2.128 $ |
-| Test, sin calibrar | 556.159.355 $ | 556.332.939 $ | 0.9997 | 12.81 % | 2.001 $ |
-| Validación, calibrada | 566.779.571 $ | 554.073.730 $ | 1.0229 | 9.47 % | 2.127 $ |
+| | ECL predicha | Pérdida real | ECL / pérdida | Préstamos infraestimados | MAE ECL$_j$ | MAPE ECL$_j$ |
+|---|---:|---:|---:|---:|---:|---:|
+| **Test, calibrada** | 566.958.326 $ | 556.332.939 $ | **1.0191** | **9.50 %** | 2.128 $ | 155.20 % |
+| Test, sin calibrar | 556.159.355 $ | 556.332.939 $ | 0.9997 | 12.81 % | 2.001 $ | 91.53 % |
+| Validación, calibrada | 566.779.571 $ | 554.073.730 $ | 1.0229 | 9.47 % | 2.127 $ | — * |
+
+\* En validación, el MAPE no es interpretable: unos pocos impagos con pérdida real de céntimos lo disparan a valores del orden de $10^{11}$ %. El MAPE se calcula sobre los préstamos con pérdida real positiva.
 
 **Se cumplen las dos restricciones del reto**: la ECL total supera a la pérdida real en un 1.91 % y solo el 9.50 % de los préstamos queda infraestimado. Sin calibrar, el producto de los tres modelos incumple ambas. Los resultados en test son prácticamente iguales a los de validación, lo que indica que la calibración no está sobreajustada a la muestra en la que se aprendió; además, una comprobación *out-of-bag* en validación cumplía ambas restricciones en el 99 % de las réplicas.
 
