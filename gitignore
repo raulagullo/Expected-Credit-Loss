@@ -1,0 +1,22 @@
+# Datos del reto (no se publican)
+data/
+*.csv
+!resultados/*.csv
+
+# Ficheros intermedios y checkpoints
+*.parquet
+*.pkl
+*.db
+
+# Python / Jupyter
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# IDE y sistema
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

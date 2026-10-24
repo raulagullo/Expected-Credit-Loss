@@ -1,0 +1,14 @@
+numpy
+pandas
+pyarrow
+scipy<1.15
+scikit-learn==1.6.1
+lightgbm
+statsmodels
+linear-tree
+optuna
+joblib
+matplotlib
+seaborn
+plotly
+kaleido==0.2.1
