@@ -32,7 +32,7 @@ Se compararon además regresiones logísticas, linear trees y LightGBM con árbo
 
 ## Resultados en test
 
-Todas las decisiones de modelización y los parámetros de la calibración se fijaron con train y validación. El conjunto de test (427.929 préstamos) se usó una única vez, al final, aplicando el pipeline congelado.
+Todas las decisiones de modelización y los parámetros de la calibración se fijaron con train y validación. El conjunto de test (427.929 préstamos) se usó una única vez, al final, aplicando el pipeline congelado. Los resultados son los del pipeline de entrega (`Pipeline_Entrega_ECL.ipynb`), que reproduce de principio a fin, y con idénticas cifras, los del notebook de desarrollo.
 
 | | ECL predicha | Pérdida real | ECL / pérdida | Préstamos infraestimados | MAE ECL$_j$ | MAPE ECL$_j$ |
 |---|---:|---:|---:|---:|---:|---:|
@@ -50,6 +50,7 @@ El MAPE de ECL$_j$ en test, calculado sobre los préstamos con pérdida positiva
 
 ```
 ├── Expected_Credit_Loss.ipynb     # notebook completo: EDA, modelización, calibración y conclusiones
+├── Pipeline_Entrega_ECL.ipynb     # pipeline de entrega: de los datos a la ECL final de test, cambiando solo SEED
 ├── emp_title_clasification.py     # clasificador de puestos de trabajo (emp_title) usado en el preprocesamiento
 ├── modelos/                       # modelos optimizados entrenados en local y cargados desde el notebook
 ├── scripts/                       # búsquedas de Optuna y prueba de robustez con varias semillas
